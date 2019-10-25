@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   tools:context=".add_edit.AddEditTodoActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.todoapp.add_edit.AddEditTodoViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".add_edit.AddEditTodoActivity">
+
+        <TextView
             android:id="@+id/add_edit_tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/add_edit_til_title"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -37,14 +47,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/add_edit_tv_title">
 
-
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="text"
+                android:text="@={viewModel.title}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+        <TextView
             android:id="@+id/add_edit_tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,7 +67,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/add_edit_til_title" />
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/add_edit_til_start_date"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
@@ -74,15 +84,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/add_edit_tv_date">
 
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
                 android:clickable="false"
-                android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+                android:focusable="false"
+                android:inputType="text"
+                android:text="@{viewModel.SDate}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageButton
+        <ImageButton
             android:id="@+id/add_edit_ibtn_start_calender"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -94,7 +105,7 @@
             app:layout_constraintStart_toEndOf="@+id/add_edit_til_start_date"
             app:layout_constraintTop_toBottomOf="@id/add_edit_tv_date" />
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/add_edit_til_end_date"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
@@ -108,20 +119,21 @@
             app:helperText="input date"
             app:helperTextEnabled="true"
             app:hintEnabled="true"
+            app:layout_constraintBottom_toTopOf="@id/add_edit_tv_memo"
             app:layout_constraintEnd_toStartOf="@+id/add_edit_ibtn_end_calender"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add_edit_til_start_date"
-            app:layout_constraintBottom_toTopOf="@id/add_edit_tv_memo">
+            app:layout_constraintTop_toBottomOf="@id/add_edit_til_start_date">
 
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
                 android:clickable="false"
-                android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+                android:focusable="false"
+                android:inputType="text"
+                android:text="@{viewModel.EDate}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageButton
+        <ImageButton
             android:id="@+id/add_edit_ibtn_end_calender"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -133,19 +145,19 @@
             app:layout_constraintStart_toEndOf="@+id/add_edit_til_end_date"
             app:layout_constraintTop_toBottomOf="@id/add_edit_til_start_date" />
 
-    <TextView
+        <TextView
             android:id="@+id/add_edit_tv_memo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Memo"
-            android:textSize="16sp"
             android:textColor="#000000"
-            app:layout_constraintTop_toBottomOf="@id/add_edit_til_end_date"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_til_end_date" />
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/add_edit_til_memo"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
@@ -159,13 +171,15 @@
             app:helperText="input memo"
             app:helperTextEnabled="true"
             app:hintEnabled="true"
-            app:layout_constraintTop_toBottomOf="@id/add_edit_tv_memo"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/add_edit_tv_memo">
 
-        <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.memo}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

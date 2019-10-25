@@ -2,32 +2,34 @@ package com.example.todoapp.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.R
 import com.example.todoapp.add_edit.AddEditTodoActivity
 import com.example.todoapp.data.database.TodoDB
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.todoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private var database: TodoDB? = null
-    private lateinit var adapter: MainAdapter
+    private var adapter: MainAdapter? = null
+    private var binding: ActivityMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         adapter = MainAdapter(this)
-        adapter.initialize()
+        adapter?.initialize()
         database = TodoDB.getInstance(this)
 
-        main_rcv_todo.adapter = adapter
-        main_rcv_todo.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        main_rcv_todo.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        binding?.mainRcvTodo?.adapter = adapter
+        binding?.mainRcvTodo?.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        binding?.mainRcvTodo?.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
 
-        main_fab_add.setOnClickListener { v ->
+        binding?.mainFabAdd?.setOnClickListener { v ->
 //            val time = System.currentTimeMillis()
 //            adapter.addItem(TodoItem(time))
 
@@ -37,6 +39,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        adapter.initialize()
+        adapter?.initialize()
     }
 }

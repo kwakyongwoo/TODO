@@ -23,6 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding{
+        enabled true
+    }
 }
 
 dependencies {
@@ -43,4 +46,8 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
     kaptTest "android.arch.persistence.room:testing:$room_version"
+
+    // ViewModelProviders and more
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+
 }
