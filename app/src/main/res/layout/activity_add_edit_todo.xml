@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context=".add_edit.AddEditTodoActivity">
+
+    <TextView
+            android:id="@+id/add_edit_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Title"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/add_edit_til_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_edit_til_title"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Title *"
+            app:errorEnabled="true"
+            app:helperText="input title"
+            app:helperTextEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintBottom_toTopOf="@id/add_edit_tv_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_tv_title">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+            android:id="@+id/add_edit_tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Date"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/add_edit_til_start_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_til_title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_edit_til_start_date"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Start date *"
+            app:errorEnabled="true"
+            app:helperText="input date"
+            app:helperTextEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintEnd_toStartOf="@+id/add_edit_ibtn_start_calender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_tv_date">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="false"
+                android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+            android:id="@+id/add_edit_ibtn_start_calender"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/image_btn_outline"
+            android:src="@drawable/ic_calender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/add_edit_til_start_date"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_tv_date" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_edit_til_end_date"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="false"
+            android:hint="Due date *"
+            app:errorEnabled="true"
+            app:helperText="input date"
+            app:helperTextEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintEnd_toStartOf="@+id/add_edit_ibtn_end_calender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_til_start_date"
+            app:layout_constraintBottom_toTopOf="@id/add_edit_tv_memo">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="false"
+                android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+            android:id="@+id/add_edit_ibtn_end_calender"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/image_btn_outline"
+            android:src="@drawable/ic_calender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/add_edit_til_end_date"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_til_start_date" />
+
+    <TextView
+            android:id="@+id/add_edit_tv_memo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Memo"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_til_end_date"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/add_edit_til_memo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Memo"
+            app:errorEnabled="true"
+            app:helperText="input memo"
+            app:helperTextEnabled="true"
+            app:hintEnabled="true"
+            app:layout_constraintTop_toBottomOf="@id/add_edit_tv_memo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
