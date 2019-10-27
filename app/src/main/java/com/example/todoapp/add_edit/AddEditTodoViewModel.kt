@@ -10,7 +10,7 @@ class AddEditTodoViewModel : ViewModel() {
     val eDate = MutableLiveData<String>()
     val memo = MutableLiveData<String>()
 
-    fun initialze(data: TodoItem) {
+    fun initialize(data: TodoItem) {
         title.value = data.title
         sDate.value = data.sDate
         eDate.value = data.eDate

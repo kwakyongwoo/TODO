@@ -59,7 +59,7 @@ class AddEditTodoActivity : AppCompatActivity() {
         id = intent.getIntExtra("id", -1).also {
             if (it != -1) {
                 val item = database.todoDao().getTodo(it)
-                viewModel?.initialze(item)
+                viewModel?.initialize(item)
             }
         }
 
@@ -68,6 +68,14 @@ class AddEditTodoActivity : AppCompatActivity() {
         }
 
         binding?.addEditIbtnEndCalender?.setOnClickListener { v ->
+            showCalender(CLICK_END_DATE)
+        }
+
+        binding?.addEditTilStartDate?.setOnClickListener { v ->
+            showCalender(CLICK_START_DATE)
+        }
+
+        binding?.addEditTilEndDate?.setOnClickListener { v ->
             showCalender(CLICK_END_DATE)
         }
     }
